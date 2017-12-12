@@ -44,7 +44,7 @@ $zip->close();
 try {
     $abs_path = "LOCALPATH";
     S3::setAuth(awsAccessKey, awsSecretKey);
-    $bucketName = 'jrbackupprojects';
+    $bucketName = 'BUCKETNAME';
     //save to s3 bucket
     file_put_contents("PATH");    
     unlink($abs_path . '/' . $zip_file);
