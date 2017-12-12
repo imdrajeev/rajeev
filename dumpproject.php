@@ -6,13 +6,13 @@ ini_set('max_execution_time', 600);
 ini_set('memory_limit', '1024M');
 
 // AWS access info
-define('awsAccessKey', 'AKIAJ3SZI64KVYA44NTA');
-define('awsSecretKey', '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');
+define('awsAccessKey', 'XXXXXXXX');
+define('awsSecretKey', 'YYYYYYYYYYY');
 
 $zip_file = 'file-backup-' . date("Ymd-His", time()) . '.zip';
 
 // Get real path for our folder
-$rootPath = $_SERVER["DOCUMENT_ROOT"].'/dev/application';
+$rootPath = 'PATH';
 
 
 
@@ -42,11 +42,11 @@ foreach ($files as $name => $file) {
 $zip->close();
 
 try {
-    $abs_path = $_SERVER["DOCUMENT_ROOT"].'/dev/';
+    $abs_path = "LOCALPATH";
     S3::setAuth(awsAccessKey, awsSecretKey);
     $bucketName = 'jrbackupprojects';
     //save to s3 bucket
-    file_put_contents("s3://{$bucketName}/" . $zip_file, fopen($abs_path . $zip_file, 'r'));    
+    file_put_contents("PATH");    
     unlink($abs_path . '/' . $zip_file);
 } catch (Exception $e) {
     //echo $e->getMessage();
